@@ -1,0 +1,4 @@
+git add --all
+git commit -m "备注"
+git push
+#上传
