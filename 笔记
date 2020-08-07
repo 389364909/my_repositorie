@@ -3,88 +3,130 @@ git add --all
 git commit -m "备注"
 git push
 
-#工具
-random 随机
-time 时间
-math 计算
-json json模块
-re 正则表达式
+#模块
+    random 随机
+    time 时间
+    math 计算
+    json json模块
+    re 正则表达式
 
-multiprocessing 进程
-    (Process)
-    _ = Process(target="类", args=("",))
-threading 线程
-    (Thread)
-    _ = Thread(target="类", args=("",))
-    (Lock)
-    _.acquire()上锁
-    _.release()解锁
+    multiprocessing 进程
+        (Process)
+     _ = Process(target="类", args=("",))
+    threading 线程
+        (Thread)
+        _ = Thread(target="类", args=("",))
+        (Lock)
+        _.acquire()上锁
+        _.release()解锁
 
-requests 基于HTTP协议来使用网络的第三库
+    requests 基于HTTP协议来使用网络的第三库
 
-socket 套接字
-    (socket, SOCK_STREAM #IPv4# , AF_INET #TCP套接字# )
-    """服务端"""
-    _ = socket(#默认IPv4+TCP)
-    _.bind(地址：端口) 绑定服务器
-    _.listen(#队列大小) #监听客户端连接到服务器
-    client, addr = _.accept() #第一个是客户端对象，第二个是地址+端口  如果没有，代码不会向下执行
-    client.send(  .encode('utf-8')) #向客户端发送数据
-    _.close()关闭
+    socket 套接字
+        (socket, SOCK_STREAM #IPv4# , AF_INET #TCP套接字# )
+        """服务端"""
+        _ = socket(#默认IPv4+TCP)
+        _.bind(地址：端口) 绑定服务器
+        _.listen(#队列大小) #监听客户端连接到服务器
+        client, addr = _.accept() #第一个是客户端对象，第二个是地址+端口  如果没有，代码不会向下执行
+        client.send(  .encode('utf-8')) #向客户端发送数据
+        _.close()关闭
 
-    """客户端"""
-    _ = socket()
-    _.connect((地址：端口))
-    #接收数据
-    data = client.recv(1024)
-    while data:
-        # 将收到的数据拼接起来
-        in_data += data
-        data = client.recv(1024) #不知服务端发送多少，每次接收1024字节
-    receive-things = in_data.decode('utf-8')
+        """客户端"""
+        _ = socket()
+        _.connect((地址：端口))
+        #接收数据
+        data = client.recv(1024)
+        while data:
+            # 将收到的数据拼接起来
+            in_data += data
+            data = client.recv(1024) #不知服务端发送多少，每次接收1024字节
+        receive-things = in_data.decode('utf-8')
 
-PIL 图片加载/编辑
-    (Image)
-    _ = Image.open('文件路径') #打开图片
-    _.show() #显示
-    _.crop(x,y,a,b) #剪裁 从(x,y)到(a,b)
-    _.resize("int","int") #缩放
-    _.paste("image",(x,y)) #粘贴image到_(x,y)上
-    _.rotate("角度") #旋转
-    _.transpose(Image.FLIP_LEFT_RIGHT) #翻转
-    _.putpixel((x, y), (R, G, B)) #改变像素颜色
-    (ImageFilter)滤镜
-    _.filter(ImageFilter.#滤镜)
+    PIL 图片加载/编辑
+        (Image)
+        _ = Image.open('文件路径') #打开图片
+        _.show() #显示
+        _.crop(x,y,a,b) #剪裁 从(x,y)到(a,b)
+        _.resize("int","int") #缩放
+        _.paste("image",(x,y)) #粘贴image到_(x,y)上
+        _.rotate("角度") #旋转
+        _.transpose(Image.FLIP_LEFT_RIGHT) #翻转
+        _.putpixel((x, y), (R, G, B)) #改变像素颜色
+        (ImageFilter)滤镜
+        _.filter(ImageFilter.#滤镜)
 
-heapq 堆排序
-    #从列表中找出最大的或最小的N个元素
-    heapq.nlargest("N","list") #最大n个元素
-    heapq.nsmallest("N","list") #最小n个元素
-    heapq.nlargest/nsmallest("N", "list", key=lambda x: x['']) #在 list = [ {"":""},{"":""} ] 中的元素
+    heapq 堆排序
+        #从列表中找出最大的或最小的N个元素
+        heapq.nlargest("N","list") #最大n个元素
+        heapq.nsmallest("N","list") #最小n个元素
+        heapq.nlargest/nsmallest("N", "list", key=lambda x: x['']) #在 list = [ {"":""},{"":""} ] 中的元素
 
-itertools 迭代工具
-    # 产生ABCD的全排列
-    itertools.permutations('ABCD')
-    # 产生ABCDE的五选三组合
-    itertools.combinations('ABCDE', 3)
-    # 产生ABCD和123的笛卡尔积
-    itertools.product('ABCD', '123')
-    # 产生ABC的无限循环序列
-    itertools.cycle(('A', 'B', 'C'))
+    itertools 迭代工具
+        # 产生ABCD的全排列
+        itertools.permutations('ABCD')
+        # 产生ABCDE的五选三组合
+        itertools.combinations('ABCDE', 3)
+        # 产生ABCD和123的笛卡尔积
+        itertools.product('ABCD', '123')
+        # 产生ABC的无限循环序列
+        itertools.cycle(('A', 'B', 'C'))
 
-collections 包含了一些特殊的容器，针对Python内置的容器
-    #https://www.cnblogs.com/dahu-daqing/p/7040490.html
+    collections 包含了一些特殊的容器，针对Python内置的容器
+        #https://www.cnblogs.com/dahu-daqing/p/7040490.html
 
-copy 拷贝
-    (copy) 浅拷贝“a,b独立，但子对象指向同元素”
-    第一种情况：复制的 对象中无 复杂子对象:
-        原来值的改变并不会影响浅复制的值，同时浅复制的值改变也并不会影响原来的值。原来值的id值与浅复制原来的值不同。
-    第二种情况：复制的对象中有 复杂子对象 （例如列表中的一个子元素是一个列表）
-        如果不改变其中复杂子对象，浅复制的值改变并不会影响原来的值。
-        但是改变原来的值 中的复杂子对象的值  会影响浅复制的值。
+    copy 拷贝
+        (copy) 浅拷贝“a,b独立，但子对象指向同元素”
+        第一种情况：复制的 对象中无 复杂子对象:
+            原来值的改变并不会影响浅复制的值，同时浅复制的值改变也并不会影响原来的值。原来值的id值与浅复制原来的值不同。
+        第二种情况：复制的对象中有 复杂子对象 （例如列表中的一个子元素是一个列表）
+            如果不改变其中复杂子对象，浅复制的值改变并不会影响原来的值。
+            但是改变原来的值 中的复杂子对象的值  会影响浅复制的值。
 
-    (deepcopy) 深拷贝“b完全独立”
-    _a = [1,2,3]
-    _b = copy.deepcopy(_a)
-    _a.append(4) #_b = [1,2,3]
+        (deepcopy) 深拷贝“b完全独立”
+        _a = [1,2,3]
+        _b = copy.deepcopy(_a)
+        _a.append(4) #_b = [1,2,3]
+
+#内置函数
+    转换元素类型
+        转字符串
+            str() 输出追求可读性，输出格式要便于理解，适合用于输出内容到用户终端。
+            repr() 输出追求明确性，除了对象内容，还需要展示出对象的数据类型信息，适合开发和调试阶段使用。
+        将迭代器转换为列表
+            list()
+        转整数
+            int()
+        转浮点
+            float()
+        转绝对值
+            abs()
+        转布尔型
+            bool()
+        生成迭代器
+            iter()
+        返回迭代器下一个元素
+            next()
+        转迭代器为列表
+            list()
+    
+    删除元素 del *
+
+    列表排序 (type=list).sort(key=None ,reverse= True降序/(默认)False升序 )
+    列表追加 (type=list).append(*)
+
+    声明或定义全局变量 global *
+
+    声明使用嵌套作用域的变量 nonlocal *
+
+    对指定序列使用函数 map(函数,一个或多个序列)
+
+    分隔字符串 (type=str).spilt( str(分隔符) , num(分隔次数，默认-1，所有) )
+
+#装饰器
+    @property 使调用类中的方法像引用类中的字段属性一样 def _():    *._
+
+
+
+
 
