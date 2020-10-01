@@ -1,7 +1,13 @@
 #上传
-git add --all
-git commit -m "备注"
-git push
+    git add --all
+    git commit -m "备注"
+    git push
+
+#python文件打包成可执行文件文件
+    pip install pyinstaller #安装
+    pyinstaller -F 文件名.py (EXE文件)
+        -F 打包为可执行文件(整包) -o DIR 打包到文件所在目录，否则打包到dist 
+        -D 生成一个目录，各种第三方依赖、资源和可执行文件(EXE)同时存储在该目录
 
 #模块
     random 随机
@@ -125,8 +131,3 @@ git push
 
 #装饰器
     @property 使调用类中的方法像引用类中的字段属性一样 def _():    *._
-
-
-
-
-
