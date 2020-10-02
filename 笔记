@@ -26,6 +26,14 @@
         _.acquire()上锁
         _.release()解锁
 
+    concurrent.futures
+        ThreadPoolExecutor  线程池
+
+        ProcessPoolExecutor  进程池
+
+        submit  同异步调用
+
+
     requests 基于HTTP协议来使用网络的第三库
 
     socket 套接字
