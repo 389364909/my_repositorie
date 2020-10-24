@@ -35,6 +35,8 @@
 
 
     requests 基于HTTP协议来使用网络的第三库
+        _ = requests.get("https://xxx.xxx")
+        print(_.text)
 
     socket 套接字
         (socket, SOCK_STREAM #IPv4# , AF_INET #TCP套接字# )
