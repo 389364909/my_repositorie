@@ -9,6 +9,8 @@
         -F 打包为可执行文件(整包) -o DIR 打包到文件所在目录，否则打包到dist 
         -D 生成一个目录，各种第三方依赖、资源和可执行文件(EXE)同时存储在该目录
 
+myheader = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36'}
+
 #模块
     random 随机
     time 时间
@@ -104,6 +106,25 @@
         _b = copy.deepcopy(_a)
         _a.append(4) #_b = [1,2,3]
 
+    lxml --> etree 得到html文件中的指定数据
+        (右键需要的地方可以直接找到位置)检查-->copy-->copy xpath 得到xpath
+        // 定位根节点/ 往下层寻找  
+        (追加)
+        提取文本内容：/text()--> "从invalidate分析view绘制流程" 
+        提取属性内容：/@xxxx --> @href "https://blog.csdn.net/it_xf/article/details/85706126"
+       
+        eg. //*[@id="articleMeList-blog"]/div[2]/div[1]/h4/a
+            """
+            <a href="https://blog.csdn.net/it_xf/article/details/85706126" target="_blank">
+            
+                <span class="article-type type-1 float-none">原创</span>
+            从invalidate分析view绘制流程 
+            </a>
+            """
+        
+        _ = etree.HTML(####)
+        __ = _.xpath(" ##xpath## ")
+        
 #内置函数
     转换元素类型
         转字符串
