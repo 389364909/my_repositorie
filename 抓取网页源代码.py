@@ -1,7 +1,7 @@
 
 def catch(url):
     import requests
-    code = (requests.get(url)).text
+    code = (requests.get(url,timeout=10)).text
     #print(code)
     with open('code.txt','w') as code_:
         code_.write(code)
